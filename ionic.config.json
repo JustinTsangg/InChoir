@@ -1,0 +1,7 @@
+{
+  "name": "InChoir",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
