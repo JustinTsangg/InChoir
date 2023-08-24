@@ -24,3 +24,18 @@
 @import "@ionic/angular/css/text-alignment.css";
 @import "@ionic/angular/css/text-transformation.css";
 @import "@ionic/angular/css/flex-utils.css";
+
+
+:root {
+    --ion-background-color: #111111;
+    --ion-tab-bar-background: #17202A;
+    --ion-item-background: var(--ion-color-light)
+}
+
+ion-content{
+    background-color: #212f3c
+}
+
+ion-button{
+    text-transform: none;
+}

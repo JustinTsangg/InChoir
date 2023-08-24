@@ -1,0 +1,32 @@
+<ion-content [fullscreen]="true">
+  <div id="logodiv">
+      <ion-label id="appnamelabel">
+        InChoir
+      </ion-label>
+  </div>
+  <div id="inputsdiv">
+    <div id="inputsdivbox">
+      <!-- <div id="signinlabeldiv" lines="none" fill="outline">
+        <ion-label id="signinlabel">
+          Sign-in
+        </ion-label>
+      </div> -->
+      <div style="padding-bottom: 40px; width: 80%; display: flex; flex-wrap: wrap; align-items: center; flex-direction: column;">
+        <ion-item style="margin-bottom: 25px;" fill="outline" id="inputitem">
+          <ion-label position="floating" > Username </ion-label>
+          <ion-input  placeholder="Gunlord98" [value]="username" (ionInput)="userInputEvent($event)"> </ion-input>
+        </ion-item>
+        <ion-item fill="outline" id="inputitem" style="margin-bottom: 50px;">
+          <ion-label position="floating"> Password </ion-label>
+          <ion-input placeholder="PassWord123" type="password" [value]="pass"  (ionInput)="passInputEvent($event)"></ion-input>
+        </ion-item>
+        <ion-button color="primary" style="width: 70%;" (click)="trySignIn()">
+          Sign-in
+        </ion-button>
+        <ion-button color="primary" style="width: 70%;" (click)="tryRegister()">
+          Sign-up
+        </ion-button>
+      </div>
+    </div>
+  </div>
+</ion-content>

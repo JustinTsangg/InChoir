@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { CapacitorHttpPlugin } from '@capacitor/core/types/core-plugins';
+import { CapacitorHttp } from '@capacitor/core';
 
 @Injectable({
   providedIn: 'root'
@@ -7,40 +7,47 @@ import { CapacitorHttpPlugin } from '@capacitor/core/types/core-plugins';
 export class HttpServiceService {
 
   constructor(
-    private http: CapacitorHttpPlugin
   ) {
+
    }
 
   public async get(url: string, params?: any, headers?: any): Promise<any> {
-    return await this.http.get({
-      url,
-      params,
-      headers
+    return await CapacitorHttp.get({
+      url: url,
+      params: params ? params : [],
+      headers: headers ? headers : []
     });
    }
-   
-   public async post(url: string, data?: any, headers?: any): Promise<any> {
-    return await this.http.post({
-      url,
-      data,
-      headers
+   public async post(url: string, params?: any, headers?: any): Promise<any> {
+    return await CapacitorHttp.post({
+      url: url,
+      params: params ? params : [],
+      headers: headers ? headers : []
     });
    }
 
-    public async put(url: string, data?: any, headers?: any): Promise<any> {
-      return await this.http.put({
-        url,
-        data,
-        headers
+    public async put(url: string, params?: any, headers?: any): Promise<any> {
+    return await CapacitorHttp.put({
+      url: url,
+      params: params ? params : [],
+      headers: headers ? headers : []
+    });
+  }
+
+    public async delete(url: string, params?: any, headers?: any): Promise<any> {
+      return await CapacitorHttp.delete({
+        url: url,
+      params: params ? params : [],
+      headers: headers ? headers : []
       });
     }
 
-    public async delete(url: string, data?: any, headers?: any): Promise<any> {
-      return await this.http.delete({
-        url,
-        data,
-        headers
-      });
-    }
+}
 
+export const Endpoints = {
+  spotifyLogin: 'https://accounts.spotify.com/authorize',
+  spotifyToken: 'https://accounts.spotify.com/api/token',
+  signin: 'http://127.0.0.1:5000/auth/login',
+  register: 'http://127.0.0.1:5000/auth/register',
+  signout: 'http://127.0.0.1:5000/auth/logout'
 }
