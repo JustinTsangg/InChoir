@@ -11,14 +11,15 @@ export class SignInService {
     private http: HttpServiceService
   ) { }
 
-  signIn(user: string, pass: string){
-    return this.http.post(
+  async signIn(user: string, pass: string): Promise<user>{
+    const res = await this.http.post(
       Endpoints.signin,
       {
         username: user,
         password: pass
       }
     )
+    return res.data.user as user
   }
 
   signUp(user: string, pass: string){

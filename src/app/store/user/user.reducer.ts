@@ -5,7 +5,7 @@ import * as UserActions from './user.actions'
 export const featureKey = 'user'
 
 export interface State{
-    user: user | null
+    user: user
 }
 
 export const initialState: State = {

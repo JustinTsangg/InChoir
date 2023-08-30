@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { SignInService } from '../services/sign-in.service';
 import { Store } from '@ngrx/store';
-import { RootState } from '../store/root/root.selectors';
+import { RootState } from '../store/root/root.reducer';
 import * as UserActions from '../store/user/user.actions'
+import { selectUser } from '../store/user/user.selectors';
 
 @Component({
   selector: 'app-sign-in',
@@ -23,6 +24,7 @@ export class SignInPage implements OnInit {
   }
 
   ngOnInit() {
+    this.store.select(selectUser).subscribe((user)=>console.log('USER: ', user))
   }
 
   userInputEvent(event: any){

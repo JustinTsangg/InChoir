@@ -8,7 +8,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects'
-import { reducers } from './store/root/root.selectors';
+import { reducers } from './store/root/root.reducer';
 import { rootEffects } from './store/root/root.effects';
 
 @NgModule({

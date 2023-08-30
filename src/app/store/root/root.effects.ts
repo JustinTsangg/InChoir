@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { Store } from '@ngrx/store';
-import { RootState } from './root.selectors';
 import { tap } from 'rxjs';
 import { UserEffects } from '../user/user.effects';
+import { RootState } from './root.reducer';
 
 @Injectable()
 export class RootEffects {

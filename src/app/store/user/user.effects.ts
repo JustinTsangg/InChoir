@@ -2,7 +2,7 @@ import { Injectable } from "@angular/core";
 import * as UserActions from './user.actions';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { Store } from "@ngrx/store";
-import { RootState } from "../root/root.selectors";
+import { RootState } from "../root/root.reducer";
 import { map, tap } from "rxjs";
 import { SignInService } from "src/app/services/sign-in.service";
 
@@ -13,9 +13,11 @@ export class UserEffects {
     signIn$ = createEffect(()=> this.actions$.pipe(
         ofType(UserActions.signIn),
         map((action) => this.signIn.signIn(action.username, action.password) ),
-        tap(async (res)=> {
-            const RESO = await res
-            console.log(RESO)
+        tap( async(user)=> {
+            user.then(
+                (user)=> this.store.dispatch(UserActions.setUser({user: user})),
+            )
+            .catch((err)=> console.log(err))
         })
     ), {dispatch: false})
 

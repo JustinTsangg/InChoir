@@ -1,14 +1,6 @@
-export const rootFeatureKey = 'root';
-import { ActionReducerMap, createReducer, on } from '@ngrx/store';
+import { createFeatureSelector, createSelector } from '@ngrx/store';
+import * as fromUser from '../user/user.reducer';
 
-export interface State {
-
-}
-
-export interface RootState{
-
-}
-
-export const reducers: ActionReducerMap<RootState> = {
-
-}
+export const selectUserState = createFeatureSelector<fromUser.State>(
+    fromUser.featureKey
+)
