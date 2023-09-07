@@ -5,7 +5,7 @@ import { selectUser } from '../store/user/user.selectors';
 import { map, take } from 'rxjs';
 import { Store } from '@ngrx/store';
 import { RootState } from '../store/root/root.reducer';
-
+import { environment } from 'src/environments/environment';
 @Injectable({
   providedIn: 'root',
 })
@@ -19,7 +19,7 @@ export class SpotifyLoginService {
     const scope = 'user-read-private user-read-email';
         this.http
           .get(Endpoints.spotifyLogin, {
-            client_id: 'c04641f7aa6f4a05a34b7df8cd4337ab',
+            client_id: environment.spotifyClientId,
             response_type: 'code',
             scope: scope,
             redirect_uri: 

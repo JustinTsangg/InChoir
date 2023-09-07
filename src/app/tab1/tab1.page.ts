@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { HttpServiceService } from '../services/http-service.service';
+import { Endpoints, HttpServiceService } from '../services/http-service.service';
 import { SpotifyLoginService } from '../services/spotify-login.service';
 import { Router } from '@angular/router';
 import { selectUser } from '../store/user/user.selectors';
@@ -18,12 +18,18 @@ export class Tab1Page {
     private spotifyLogin: SpotifyLoginService,
     private router: Router,
     private store: Store<RootState>,
+    private http: HttpServiceService
   ) {}
 
-  public async test() {
-    console.log(this.router.url)
+  public test() {
     this.store.select(selectUser).pipe(take(1)).subscribe(
       user=> this.spotifyLogin.getSpotifyLoginUrl(user.id)
+    )
+  }
+
+  public testJwt() {
+    this.http.get(Endpoints.testJwt).then(
+      res=> console.log(res)
     )
   }
 

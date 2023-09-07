@@ -3,7 +3,8 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  spotifyClientId: 'c04641f7aa6f4a05a34b7df8cd4337ab'
 };
 
 /*

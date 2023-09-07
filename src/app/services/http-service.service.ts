@@ -54,7 +54,7 @@ export class HttpServiceService {
         if(user) token = user.jwt ? user.jwt : null
       })
       console.log("JWTTOKEN", token)
-      return  token ? {authorization: `Bearer ${token}`} : null
+      return  token ? {authorization: `${token}`} : null
     }
 
 }
@@ -62,9 +62,10 @@ export class HttpServiceService {
 export const Endpoints = {
   spotifyLogin: 'https://accounts.spotify.com/authorize',
   spotifyToken: 'https://accounts.spotify.com/api/token',
-  signin: 'http://192.168.43.202:5000/auth/login',
-  register: 'http://192.168.43.202:5000/auth/register',
-  signout: 'http://192.168.43.202:5000/auth/logout',
-  spotifyTokenRedirect: 'http://192.168.43.202:5000/auth/connect-spotify',
+  signin: 'http://127.0.0.1:5000/auth/login',
+  register: 'http://127.0.0.1:5000/auth/register',
+  signout: 'http://127.0.0.1:5000/auth/logout',
+  spotifyTokenRedirect: 'http://127.0.0.1:5000/auth/connect-spotify',
+  testJwt: 'http://127.0.0.1:5000/auth/testJWT'
 
 }
