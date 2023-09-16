@@ -1,11 +1,12 @@
 import { createReducer, on } from '@ngrx/store';
-import { user } from 'src/app/models/user.model';
+import { spotifyUserDetail, user } from 'src/app/models/user.model';
 import * as UserActions from './user.actions'
 
 export const featureKey = 'user'
 
 export interface State{
     user: user
+    spotifyUserDetail?: spotifyUserDetail
 }
 
 export const initialState: State = {
@@ -23,5 +24,12 @@ export const reducer = createReducer(
 
     on(UserActions.clearUser, state => {
         return initialState
+    }),
+
+    on(UserActions.setSpotifyUserDetail, (state, action) => {
+        return {
+            ...state,
+            spotifyUserDetail: action.spotifyUserDetail
+        }
     })
 )

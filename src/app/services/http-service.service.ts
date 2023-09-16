@@ -66,6 +66,7 @@ export const Endpoints = {
   register: 'http://127.0.0.1:5000/auth/register',
   signout: 'http://127.0.0.1:5000/auth/logout',
   spotifyTokenRedirect: 'http://127.0.0.1:5000/auth/connect-spotify',
-  testJwt: 'http://127.0.0.1:5000/auth/testJWT'
+  testJwt: 'http://127.0.0.1:5000/auth/testJWT',
+  userInfo: 'http://127.0.0.1:5000/userInfo/getUserDetail',
 
 }

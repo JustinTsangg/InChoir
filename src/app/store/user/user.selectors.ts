@@ -9,3 +9,8 @@ export const selectUser = createSelector(
     selectUserState, 
 (state: fromUser.State):user => state.user 
 )
+
+export const selectSpotifyUserDetail = createSelector(
+    selectUserState,
+    (state: fromUser.State): any => state.spotifyUserDetail
+)

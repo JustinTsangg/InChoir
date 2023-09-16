@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpServiceService, Endpoints } from './http-service.service';
-import { user } from '../models/user.model';
+import { spotifyUserDetail, user } from '../models/user.model';
 
 @Injectable({
   providedIn: 'root'
@@ -20,6 +20,17 @@ export class SignInService {
       }
     )
     return res.data.user as user
+  }
+
+  async getSpotifyUserDetail(): Promise<spotifyUserDetail>{
+    const res = await this.http.get(
+      Endpoints.userInfo
+    )
+    return {
+      country: res.data.country,
+      display_name: res.data.display_name,
+      profile_image_url: res.data.images[1].url
+    }
   }
 
   signUp(user: string, pass: string){

@@ -1,5 +1,5 @@
 import { createAction, props } from '@ngrx/store';
-import { user } from 'src/app/models/user.model';
+import { spotifyUserDetail, user } from 'src/app/models/user.model';
 
 export const setUser = createAction(
     '[User] setUser',
@@ -17,5 +17,16 @@ export const signIn = createAction(
     props<{
         username: string,
         password: string
+    }>()
+)
+
+export const getSpotifyUserDetail = createAction(
+    '[User] getSpotifyUserDetail',        
+)
+
+export const setSpotifyUserDetail = createAction(
+    '[User] setSpotifyUserDetail',
+    props<{
+        spotifyUserDetail: spotifyUserDetail
     }>()
 )
