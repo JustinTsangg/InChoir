@@ -68,5 +68,6 @@ export const Endpoints = {
   spotifyTokenRedirect: 'http://127.0.0.1:5000/auth/connect-spotify',
   testJwt: 'http://127.0.0.1:5000/auth/testJWT',
   userInfo: 'http://127.0.0.1:5000/userInfo/getUserDetail',
+  testUserDailyData: 'http://127.0.0.1:5000/userInfo/testDailyData',
 
 }

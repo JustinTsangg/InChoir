@@ -19,14 +19,17 @@ export class SignInService {
         password: pass
       }
     )
-    return res.data.user as user
+    return {
+      ...res.data.user,
+
+    } as user
   }
 
   async getSpotifyUserDetail(): Promise<spotifyUserDetail>{
     const res = await this.http.get(
       Endpoints.userInfo
     )
-    return {
+    return res.data.Error ? null : {
       country: res.data.country,
       display_name: res.data.display_name,
       profile_image_url: res.data.images[1].url

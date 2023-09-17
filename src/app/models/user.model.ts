@@ -1,7 +1,7 @@
 export interface user{
     id: number;
     username: string;
-    spotifyToken?: string;
+    spotify?: boolean;
     jwt?: string;
 }
 

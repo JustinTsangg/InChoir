@@ -5,7 +5,7 @@ import { Store } from "@ngrx/store";
 import { RootState } from "../root/root.reducer";
 import { map, switchMap, tap } from "rxjs";
 import { SignInService } from "src/app/services/sign-in.service";
-import { selectSpotifyUserDetail } from "./user.selectors";
+import { selectSpotifyUserDetail, selectUser } from "./user.selectors";
 
 
 @Injectable()
@@ -19,17 +19,18 @@ export class UserEffects {
                 (user)=> this.store.dispatch(UserActions.setUser({user: user})),
             )
             .catch((err)=> console.log(err))
-        })
+        }),
     ), {dispatch: false})
+
+    afterSignIn$ = createEffect(()=> this.actions$.pipe(
+        ofType(UserActions.setUser),
+        tap(()=> this.store.dispatch(UserActions.getSpotifyUserDetail())),
+        switchMap(()=> this.store.select(selectUser)),
+    ))
 
     getSpotifyUserDetail$ = createEffect(()=> this.actions$.pipe(
         ofType(UserActions.getSpotifyUserDetail),
-        map(()=> this.signIn.getSpotifyUserDetail()),
-        tap(async(res)=> {
-            res.then(
-                (userDetail)=> this.store.dispatch(UserActions.setSpotifyUserDetail({spotifyUserDetail: userDetail}))
-            )
-        }),
+        
     ), {dispatch: false})
 
     constructor(

@@ -4,6 +4,7 @@ import { Store, select } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { spotifyUserDetail, user } from '../models/user.model';
 import { selectSpotifyUserDetail, selectUser } from '../store/user/user.selectors';
+import * as UserActions from '../store/user/user.actions';
 
 @Component({
   selector: 'app-tab3',
@@ -18,10 +19,11 @@ export class Tab3Page implements OnInit{
   ) {}
 
   ngOnInit(){
+    this.store.dispatch(UserActions.getSpotifyUserDetail())
     this.spotifyUserDetail$ = this.store.select(selectSpotifyUserDetail)
     this.user$ = this.store.select(selectUser)
   }
 
-  
+
 
 }

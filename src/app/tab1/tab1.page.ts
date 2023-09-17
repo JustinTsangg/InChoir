@@ -33,7 +33,7 @@ export class Tab1Page implements OnInit{
   }
 
   public testJwt() {
-    this.http.get(Endpoints.testJwt).then(
+    this.http.get(Endpoints.testUserDailyData).then(
       res=> console.log(res)
     )
   }

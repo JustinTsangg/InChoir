@@ -16,7 +16,7 @@ export class SpotifyLoginService {
   ) {}
 
   public async getSpotifyLoginUrl(id: number): Promise<any> {
-    const scope = 'user-read-private user-read-email';
+    const scope = 'user-read-private user-read-email user-top-read';
         this.http
           .get(Endpoints.spotifyLogin, {
             client_id: environment.spotifyClientId,
